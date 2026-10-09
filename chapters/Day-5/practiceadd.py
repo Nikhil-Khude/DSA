@@ -17,6 +17,11 @@ class sll:
         else:
             self.head=temp
 
+    def beg(self,value):
+        temp=node(value)
+        temp.next=self.head
+        self.head=temp
+
     def print1(self):
         t1=self.head
         while(t1.next!=None):
@@ -32,6 +37,7 @@ obj.append(150)
 obj.append(108)
 
 obj.append(104)
+obj.beg(50)
 obj.print1()
 
 
