@@ -22,6 +22,18 @@ class sll:
         temp.next=self.head
         self.head=temp
 
+    def mid(self,value,x):
+        temp=node(value)
+        t1=self.head
+
+        while(t1.next!=None):
+            if(t1.data==x):
+                temp.next=t1.next
+                t1.next=temp
+            t1=t1.next
+
+
+
     def print1(self):
         t1=self.head
         while(t1.next!=None):
@@ -38,6 +50,7 @@ obj.append(108)
 
 obj.append(104)
 obj.beg(50)
+obj.mid(600,108)
 obj.print1()
 
 
