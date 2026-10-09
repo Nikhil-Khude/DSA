@@ -8,7 +8,7 @@ class sll:
         self.head=head
 
     def append(self,value):
-        temp=(value)
+        temp=node(value)
         if (self.head !=None):
             t1=self.head
             while(t1.next!=None):
@@ -22,5 +22,11 @@ class sll:
             print(t1.data)
             t1=t1.next
         print(t1.data)
-obj
+obj=sll()
+obj.append(10)
+obj.append(20)
+obj.append(30)
+obj.append(40)
+obj.append(50)
+obj.printll()
 
