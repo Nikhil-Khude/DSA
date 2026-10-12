@@ -22,7 +22,7 @@ class sll:
         temp.next=self.head
         self.head=temp
 
-    def mid(self,value,x):
+    def mid(self,value,x):  
         temp=node(value)
         t1=self.head
 
