@@ -1,0 +1,46 @@
+class node:
+    def __init__(self,info,next=None):
+        self.data=info
+        self.next=next
+
+class sll:
+    def __init__(self,head=None):
+        self.head=head
+
+    def append(self,value):
+        temp=node(value)
+        if self.head !=None:
+            t1=self.head
+            while(t1.next !=None):
+                t1=t1.next
+            t1.next=temp
+        else:
+            self.head=temp
+    def beg(self,value):
+        temp=node(value)
+        temp.next=self.head
+        self.head=temp
+
+    def insert(self,value,x):
+        temp=node(value)
+        t1=self.head
+        while(t1.next!=None):
+            if(t1.data==x):
+                temp.next=t1.next
+                t1.next=temp
+            t1=t1.next
+
+    def print1(self):
+        t1=self.head
+        while(t1.next!=None):
+            print(t1.data)
+            t1=t1.next
+        print(t1.data)
+
+obj= sll()
+obj.beg(5)
+obj.append(10)
+obj.append(20)
+obj.append(30)
+obj.insert(40,20)
+obj.print1()
