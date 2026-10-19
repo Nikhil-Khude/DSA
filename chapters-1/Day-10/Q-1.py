@@ -17,11 +17,34 @@ class sll:
             self.head=temp
     def beg(self,value):
         temp=node(value)
-        t1=self.head
-        
+        temp.next=self.head
+        self.head=temp
 
-    
-        
+    def mid(self,value,x):
+        temp=node(value)
+        t1=self.head
+        prev=t1
+        while(t1.next !=None):
+            if(t1.data==x):
+                temp.next=t1.next
+                t1.next=temp
+            t1=t1.next
+
+
+    def delt(self,value):
+        t1=self.head
+        prev=t1
+        if t1.data==value:
+            self.head=t1.next
+        while(t1.next !=None):
+            if t1.data==value:
+                prev.next=t1.next
+                break
+            else:
+                prev=t1
+                t1=t1.next
+        if(t1.data==value):
+             prev.next=None
     def print1(self):
         t1=self.head
         while(t1.next !=None):
@@ -33,6 +56,7 @@ obj=sll()
 obj.append(10)
 obj.append(20)
 obj.append(30)
+obj.beg(5)
+obj.mid(40,20)
+obj.delt(30)
 obj.print1()
-
-        
