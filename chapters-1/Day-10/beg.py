@@ -21,7 +21,11 @@ class dll:
 
     def beg(self,value):
         temp=node(value)
-        temp.next=self.head.prev
+        if self.head==None:
+            self.head=temp
+            return
+        temp.next=self.head
+        self.head.prev=temp
         self.head=temp
         
 
