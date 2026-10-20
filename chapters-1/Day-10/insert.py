@@ -42,7 +42,6 @@ class dll:
         t1.next=temp
         temp.prev=t1
 
-
         
     def print1(self):
         t1=self.head
