@@ -1,55 +1,48 @@
-class node:
-    def __init__(self,value):
-        self.data=value
-        self.next=None
+#Linear Queue
+class Node:
+    def __init__(self, val):
+        self.data = val
+        self.next = None
 
-class cqueue:
+class Queue:
     def __init__(self):
-        self.front=self.rear=None
-
-    def enqueue(self,new_node):
-        if self.rear:
-            self.rear.next=new_node
-            self.rear=new_node
-        else:
-            self.front=self.rear=new_node
-        self.rear.next=self.front #added for circular
-    def dequeue(self):
-        if self.front:
-            temp=self.front
+        self.front = None
+        self.rear = None
         
-            
-            if self.front==self.rear:#updated for circular
-                self.front=self.rear=None
-                print("queue is empty")
-            else:
-                self.front=self.front.next
-            
-                self.rear.next=self.front #added for cQueue
-            temp=None
-            
-        else:
-            print("queue is empty")
-
-    def print(self):
-        temp=self.front
+    
+    def enqueue(self, element):
+        new_node = Node(element)
+        if self.rear is None:
+            self.front = self.rear = new_node
+            return
+        self.rear.next = new_node
+        self.rear = new_node
+        
+    
+    def dequeue(self):
+        if self.rear==None:
+            return "Queue is empty"
+        temp = self.front
+        self.front = temp.next
+        if self.front is None:
+            self.rear = None
+        return temp.data
+    
+    def printQueue(self):
+        temp = self.front
         while temp:
-            print(temp.data,end="->")
-            temp=temp.next
-            if temp==self.front:
-                break
+            print(temp.data, end=" ")
+            temp = temp.next
         print()
-qu=cqueue()
-qu.enqueue(node(10))
-qu.enqueue(node(20))
-qu.enqueue(node(30))
-qu.enqueue(node(40))
-qu.print()
-qu.dequeue()
-qu.dequeue()
-qu.dequeue()
-qu.dequeue()
-qu.print()
-qu.enqueue(node(60))
-qu.enqueue(node(50))
-qu.print()
+
+# Create a queue
+myQueue = Queue()
+myQueue.enqueue('A')
+myQueue.enqueue('B')
+myQueue.enqueue('C')
+print("Queue: ", end="")
+myQueue.printQueue()
+print("Dequeue: ", myQueue.dequeue())
+print("Dequeue: ", myQueue.dequeue())
+print("Dequeue: ", myQueue.dequeue())
+print("Dequeue: ", myQueue.dequeue())
