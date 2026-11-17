@@ -1,49 +1,47 @@
-
-class Node:
-    def __init__(self, value):
-        self.data = value
-        self.next = None
-
-
-class Stack:
+class node:
+    def __init__(self,value):
+        self.data=value
+        self.next=None
+class stack:
     def __init__(self):
-        self.top = None
-
-    def push(self, new_node):
-        new_node.next = self.top
-        self.top = new_node
+        self.top=None
+    def isempty(self):
+        return self.top is None
+    def push (self,new_node):
+        new_node.next=self.top
+        self.top=new_node
 
     def pop(self):
-        if self.top is None:
-            return None
+        if self.isempty():
+            print("stack is empty")
+        else:
+            temp=self.top
+            print("poped element:",temp.data)
+            self.top=self.top.next
+            temp=None
 
-        temp = self.top
-        self.top = self.top.next
-        return temp.data
+    def reverse(self):
+        temp=self.top
+        while temp:
+            st1.push(node(temp.data))
+            temp=temp.next
 
     def print(self):
-        temp = self.top
-        print("Stack Elements:")
-
+        temp=self.top
+        print("stack element....")
         while temp:
-            print(temp.data, end=" -> ")
-            temp = temp.next
+            print(temp.data)
+            temp=temp.next
 
-        print("None")
-
-
-# Main Program
-st = Stack()
-
-st.push(Node(10))
-st.push(Node(20))
-st.push(Node(30))
-st.push(Node(40))
-
-print("Original Stack:")
+st=stack()
+st1=stack()
+st.push(node(10))
+st.push(node(100))
+st.push(node(45))
+st.push(node(78))
+st.push(node(90))
 st.print()
-
-print("Popped Element:", st.pop())
-
-print("After Pop:")
+st.pop()
 st.print()
+st.reverse()
+st1.print()
