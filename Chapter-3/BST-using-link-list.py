@@ -19,7 +19,7 @@ class bst:
                         return
                     else:
                         temp = temp.left
-                else:
+                else:#right side
                     if temp.right is None:
                         temp.right=new_node
                         return
@@ -33,7 +33,30 @@ class bst:
             self.inorder(rt.left)
             print(rt.data, end=" ")
             self.inorder(rt.right)
+    def preorder(self,rt):
+        if rt is None:
+            return
+        else:
+            print(rt.data, end=" ")
+            self.preorder(rt.left)
+            self.preorder(rt.right)
+    def postorder(self,rt):
+        if rt is None:
+            return
+        else:
+            self.postorder(rt.left)
+            self.postorder(rt.right)
+            print(rt.data, end=" ")
 
+    def findminmax(self,rt):
+        temp=rt
+        while temp.left is not None:
+            temp=temp.left
+        print("Minimum value in BST is:",temp.data)
+        temp=rt
+        while temp.right is not None:
+            temp=temp.right
+        print("Maximum value in BST is:",temp.data)
 b1=bst()
 b1.insert(node(100))
 b1.insert(node(10))
@@ -41,4 +64,11 @@ b1.insert(node(450))
 b1.insert(node(0))
 b1.insert(node(65))
 b1.insert(node(300))
+print("\nInorder Traversal:-")
 b1.inorder(b1.root)
+print("\nPreorder Traversal:-")
+b1.preorder(b1.root)
+print("\nPostorder Traversal:-")
+b1.postorder(b1.root)
+print("\nMinimum and Maximum values in BST:")
+b1.findminmax(b1.root)
