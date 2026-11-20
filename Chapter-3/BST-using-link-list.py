@@ -25,8 +25,20 @@ class bst:
                         return
                     else:
                         temp=temp.right
-                    
 
+    def inorder(self,rt):
+        if rt is None:
+            return
+        else:
+            self.inorder(rt.left)
+            print(rt.data, end=" ")
+            self.inorder(rt.right)
 
-
-    
+b1=bst()
+b1.insert(node(100))
+b1.insert(node(10))
+b1.insert(node(450))
+b1.insert(node(0))
+b1.insert(node(65))
+b1.insert(node(300))
+b1.inorder(b1.root)
